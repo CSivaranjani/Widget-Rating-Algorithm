@@ -27,6 +27,9 @@ for document in cursor:
         divhorizontal=Screenheight/4   #dividing the screen into four horizontal parts
         widgetname=[]
         ratingarray=[]
+        red_position_factor=200
+        yellow_position_factor=150
+        green_position_factor=50
         if (doc):    
             for element in doc:
                 left= element["left"]
@@ -38,11 +41,11 @@ for document in cursor:
                 arearate=area/1429
                 if display=='true':               # if the widget is visible 
                     if ((left <=(divvertical*2)) & (top <=(divhorizontal*2))):  
-                        rating = 200+(arearate*10)
+                        rating = red_position_factor+(arearate*10)
                     elif(((left >(divvertical*2))and (top <=(divhorizontal*2))) or (((top > (divhorizontal*2)) and(top<=(divhorizontal*3))))):
-                        rating = 150+(arearate*8)
+                        rating = yellow_position_factor+(arearate*8)
                     elif(top > (divhorizontal*3)) and (top <(divhorizontal*4)):
-                        rating = 50+(arearate*4)
+                        rating = green_position_factor+(arearate*4)
                     elif (top >= (divhorizontal*4)):
                         rating = 10+(1*arearate)
                 else:                             # if the widget is not visible
